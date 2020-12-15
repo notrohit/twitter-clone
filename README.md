@@ -1,4 +1,11 @@
-# nodeal
+## Vue Installation
+```
+npm install -g vue
+```
+## Vue-CLI Installation
+```
+npm install -g @vue/cli
+```
 
 ## Project setup
 ```
