@@ -7,7 +7,7 @@
           <i class="fab fa-twitter"></i>
         </button>
         <div>
-          <button v-for="tab in tabs" @click="id = tab.id" :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`">
+          <button v-for="tab in tabs" :key="tab.id"  @click="id = tab.id" :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`">
             <i :class="`${ tab.icon } text-2xl mr-4 text-left`"></i>
             <p class="text-lg font-semibold text-left hidden lg:block"> {{ tab.title }} </p>
           </button>
@@ -68,7 +68,7 @@
         </form>
       </div>
       <div class="flex flex-col-reverse">
-        <div v-for="tweet in tweets" class="w-full p-4 border-b hover:bg-lighter flex">
+        <div v-for="tweet in tweets"  class="w-full p-4 border-b hover:bg-lighter flex" :key="tweet.id">
           <div class="flex-none mr-4">
             <img src="profile.jpg" class="h-12 w-12 rounded-full flex-none"/>
           </div>
@@ -102,7 +102,7 @@
           </div>
         </div>
       </div>
-      <div v-for="follow in following" class="w-full p-4 border-b hover:bg-lighter flex">
+      <div v-for="follow in following" :key="follow.handle" class="w-full p-4 border-b hover:bg-lighter flex">
         <div class="flex-none mr-4">
           <img :src="`${follow.src}`" class="h-12 w-12 rounded-full flex-none"/>
         </div>
@@ -145,7 +145,7 @@
           <p class="text-lg font-bold">Trends for You</p>
           <i class="fas fa-cog text-lg text-blue"></i>
         </div>
-        <button v-for="trend in trending" class="w-full flex justify-between hover:bg-lighter p-3 border-t border-lighter">
+        <button v-for="trend in trending" :key="trend.id" class="w-full flex justify-between hover:bg-lighter p-3 border-t border-lighter">
           <div>
             <p class="text-xs text-left leading-tight text-dark"> {{ trend.top}} </p>
             <p class="font-semibold text-sm text-left leading-tight"> {{ trend.title}} </p>
@@ -161,7 +161,7 @@
         <div class=" p-3">
           <p class="text-lg font-bold">Who to Follow</p>
         </div>
-        <button v-for="friend in friends" class="w-full flex hover:bg-lighter p-3 border-t border-lighter">
+        <button v-for="friend in friends" :key="friend.handle" class="w-full flex hover:bg-lighter p-3 border-t border-lighter">
           <img :src="`${ friend.src }`" class="w-12 h-12 rounded-full border border-lighter" />
           <div class="hidden lg:block ml-4">
             <p class="text-sm font-bold leading-tight"> {{ friend.name }} </p>
@@ -200,11 +200,11 @@ export default {
       id: 'home',
       dropdown: false,
       trending: [
-        {top: 'Trending in TX', title: 'Gigi', bottom: 'Trending with: Rip Gigi'},
-        {top: 'Music', title: 'We Won', bottom: '135K Tweets'},
-        {top: 'Pop', title: 'Blue Ivy', bottom: '40k tweets'},
-        {top: 'Trending in India', title: 'Denim Day', bottom: '40k tweets'},
-        {top: 'Trending', title: 'When Beyonce', bottom: '25.4k tweets'},
+        {top: 'Trending in TX', title: 'Gigi', bottom: 'Trending with: Rip Gigi', id:"1"},
+        {top: 'Music', title: 'We Won', bottom: '135K Tweets', id:"2"},
+        {top: 'Pop', title: 'Blue Ivy', bottom: '40k tweets', id:"3"},
+        {top: 'Trending in India', title: 'Denim Day', bottom: '40k tweets', id:"4" },
+        {top: 'Trending', title: 'When Beyonce', bottom: '25.4k tweets', id:"5"},
       ],
       friends: [
         {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy'},
