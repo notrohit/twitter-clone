@@ -1,5 +1,3 @@
-# nodeal
-
 ## Project setup
 ```
 npm install
