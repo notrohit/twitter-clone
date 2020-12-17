@@ -3,7 +3,10 @@
     <!-- side nav component-->
     <SideNav />
     <!-- Tweets Component -->
-    <Tweets />
+    <!-- <Tweets /> -->
+    <router-view></router-view>  
+    <!-- <router-link to="/side">Side</router-link> -->
+      <hr />
     <!-- trending component-->
     <Trending />
   </div>
@@ -11,14 +14,14 @@
 
 <script>
 import SideNav from './components/SideNav.vue'
-import Tweets from './components/Tweets.vue'
+// import Tweets from './components/Tweets.vue'
 import Trending from './components/Trending.vue'
 
 export default {
   name: 'app',
   components: {
     SideNav,
-    Tweets,
+    // Tweets,
     Trending
   },
   data() {

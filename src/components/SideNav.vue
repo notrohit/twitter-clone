@@ -2,13 +2,16 @@
     <div class="lg:w-1/5 border-r border-lighter px-2 lg:px-6 py-2 flex flex-col justify-between">
       <div>
         <button class="h-12 w-12 hover:bg-lightblue text-3xl rounded-full text-blue">
+         <!-- to be removed -->
+          <!-- <router-link to="/side"><i class="fab fa-twitter"></i></router-link> -->
           <i class="fab fa-twitter"></i>
         </button>
         <div>
           <button v-for="tab in tabs" :key="tab.id"  @click="id = tab.id" :class="`focus:outline-none hover:text-blue flex items-center py-2 px-4 hover:bg-lightblue rounded-full mr-auto mb-3 ${ id === tab.id ? 'text-blue' : ''}`">
             <i :class="`${ tab.icon } text-2xl mr-4 text-left`"></i>
-            <p class="text-lg font-semibold text-left hidden lg:block"> {{ tab.title }} </p>
+            <router-link :to="`/${tab.id}`"><p class="text-lg font-semibold text-left hidden lg:block"> {{ tab.title }} </p></router-link>
           </button>
+          <router-link to="/side"><i class="fab fa-twitter"></i></router-link>
         </div>
         <button class="text-white bg-blue rounded-full font-semibold focus:outline-none w-12 h-12 lg:h-auto lg:w-full p-3 hover:bg-darkblue">
           <p class="hidden lg:block">Tweet</p>
@@ -50,7 +53,7 @@ export default {
   data() {
     return {
       tabs: [
-        {icon: 'fas fa-home', title: 'Home', id:'home'},
+        {icon: 'fas fa-home', title: 'Home', id:''},
         {icon: 'fas fa-hashtag', title: 'Explore', id: 'explore'},
         {icon: 'far fa-bell', title: 'Notifications', id: 'notifications'},
         {icon: 'far fa-envelope', title: 'Messages', id: 'messages'},
